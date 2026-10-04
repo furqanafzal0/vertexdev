@@ -1,0 +1,2 @@
+revoke execute on function public.handle_first_admin() from public, anon, authenticated;
+create policy "media admin select" on storage.objects for select to authenticated using (bucket_id='media' and public.has_role(auth.uid(),'admin'));
